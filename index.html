@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>sistem login sederhana | semunfo</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center mt-5">
+        <h2>Sistem login sederhana dengan javascript, localStorage, dan bootstrap</h2>
+      </div>
+
+      <form id="form-login" class="bg-light m-5 p-5">
+        <div class="mb-5">
+          <span><strong>sebagai contoh masukkan :</strong></span><br>
+          <span> Nama pengguna : admin</span><br>
+          <span> Password : admin</span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nama Pengguna</label>
+          <input type="text" class="form-control" id="username">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
+      </form>
+    </div>
+
+    <!-- js boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- my js -->
+    <script type="text/javascript">
+      localStorage.setItem('user-name', 'admin');
+        localStorage.setItem('pass-word', 'admin');
+
+        const formMasuk = document.querySelector('.form-login');
+
+        function login() {
+          const namaPengguna = document.querySelector('#username');
+          const password = document.querySelector('#password');
+
+          if(namaPengguna.value == localStorage.getItem('user-name') && password.value == localStorage.getItem('pass-word')){
+            alert('anda berhasil Login');
+          }else {
+            alert('nama pengguna atau password anda salah');
+          }
+
+          formMasuk.reset();
+        }
+
+    </script>
+  </body>
+</html>
